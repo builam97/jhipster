@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 
-import { KqxsappSharedLibsModule, FindLanguageFromKeyPipe, JhiAlertComponent, JhiAlertErrorComponent } from './';
+import { KqxsappSharedLibsModule, JhiAlertComponent, JhiAlertErrorComponent } from './';
 
 @NgModule({
     imports: [KqxsappSharedLibsModule],
-    declarations: [FindLanguageFromKeyPipe, JhiAlertComponent, JhiAlertErrorComponent],
-    exports: [KqxsappSharedLibsModule, FindLanguageFromKeyPipe, JhiAlertComponent, JhiAlertErrorComponent]
+    declarations: [JhiAlertComponent, JhiAlertErrorComponent],
+    exports: [KqxsappSharedLibsModule, JhiAlertComponent, JhiAlertErrorComponent]
 })
 export class KqxsappSharedCommonModule {}

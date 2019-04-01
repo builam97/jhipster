@@ -45,9 +45,10 @@ spring:
         properties:
             hibernate.id.new_generator_mappings: true
             hibernate.connection.provider_disables_autocommit: true
-            hibernate.cache.use_second_level_cache: false
+            hibernate.cache.use_second_level_cache: true
             hibernate.cache.use_query_cache: false
             hibernate.generate_statistics: true
+            hibernate.cache.region.factory_class: io.github.jhipster.config.jcache.BeanClassLoaderAwareJCacheRegionFactory
     liquibase:
         contexts: prod
     mail:
@@ -107,7 +108,7 @@ jhipster:
                 # - In the JHipster Registry (which includes a Spring Cloud Config server)
                 # - In a separate `application-prod.yml` file, in the same folder as your executable WAR file
                 # - In the `JHIPSTER_SECURITY_AUTHENTICATION_JWT_BASE64_SECRET` environment variable
-                base64-secret: Zjc4YmVlMGJhYmYwMWZiMWQ5ZDc1NWUzM2E5Mjc3M2NkNGNlNTE2NDM4OWRkMTY4Y2QyMTE1ODA5ZTA1MTVjZTM2MmRkZmIxNzQ3YjdkNWI3YWY0ODRlOTRjODg5YWEzYjMzZGQ3YTg5MmE5YmFhOGFmZDM0YWFhODE2YTNlMDQ=
+                base64-secret: MTdiNTY1YzRjODQ3MDUzM2U4N2RkOGNlNWQ5ZTgzYzQ1ZDgzMWI3MzI3Y2I3YTJlZjA4OTA1MDI0Mzc2ODZjMzUyMTg4MTAzODQ2MTQyOTlkM2I1NDA4MDkzODk3ODc1YmFhNDgyY2FlMTAxMTQ4OTg1YTIyYjQ1ZTRjNmVmZWE=
                 # Token is valid 24 hours
                 token-validity-in-seconds: 86400
                 token-validity-in-seconds-for-remember-me: 2592000
