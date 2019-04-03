@@ -43,6 +43,27 @@
             <column name="last_modified_by" type="varchar(50)"/>
             <column name="last_modified_date" type="timestamp"/>
         </createTable>
+        <!-- result -->
+        <createTable tableName="result">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="first" type="varchar(60)"/>
+            <column name="second" type="varchar(60)"/>
+            <column name="third" type="varchar(60)"/>
+            <column name="fourth" type="varchar(60)"/>
+            <column name="fifth" type="varchar(60)"/>
+            <column name="sixth" type="varchar(60)"/>
+            <column name="seventh" type="varchar(60)"/>
+            <column name="special" type="varchar(60)"/>
+            <column name="create_date" type="timestamp"/>
+            <column name="regional" type="bigint"/>
+        </createTable>
+        <dropDefaultValue tableName="result" columnName="create_date" columnDataType="datetime"/>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/result.csv"
+                  separator=";"
+                  tableName="result"/>
 
         <createTable tableName="jhi_authority">
             <column name="name" type="varchar(50)">
