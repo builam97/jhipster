@@ -42,10 +42,10 @@ public class Result implements Serializable{
     private String special;
 
     @Column(name = "create_date")
-    private Instant create_date;
+    private String create_date;
 
     @Column(name = "regional")
-    private String regional;
+    private Long regional;
 
 	public Long getId() {
 		return id;
@@ -119,19 +119,19 @@ public class Result implements Serializable{
 		this.special = special;
 	}
 
-	public Instant getCreate_date() {
+	public String getCreate_date() {
 		return create_date;
 	}
 
-	public void setCreate_date(Instant create_date) {
+	public void setCreate_date(String create_date) {
 		this.create_date = create_date;
 	}
 
-	public String getRegional() {
+	public Long getRegional() {
 		return regional;
 	}
 
-	public void setRegional(String regional) {
+	public void setRegional(Long regional) {
 		this.regional = regional;
 	}
 

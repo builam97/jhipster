@@ -8,9 +8,7 @@ import com.mycompany.myapp.service.dto.ResultDTO;
 
 import org.slf4j.*;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import io.micrometer.core.annotation.Timed;
 
@@ -27,7 +25,20 @@ public class ResultResource {
     @GetMapping("/getResult")
     @Timed
     public ResponseEntity<List<ResultDTO>> getResult(Long region, String date) {
+        log.debug("result date"+ date);
         List<ResultDTO> result = resultService.findByRegionAndDate(region, date);
         return ResponseEntity.ok(result);
+    }
+
+    @PostMapping("/createResult")
+    @Timed
+    public ResponseEntity<ResultDTO> createResult(@RequestBody ResultDTO result) {
+        return null;
+    }
+
+    @PutMapping("/updateResult")
+    @Timed
+    public ResponseEntity<ResultDTO> updateResult(@RequestBody ResultDTO result) {
+        return null;
     }
 }

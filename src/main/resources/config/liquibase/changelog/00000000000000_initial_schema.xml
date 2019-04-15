@@ -56,15 +56,35 @@
             <column name="sixth" type="varchar(60)"/>
             <column name="seventh" type="varchar(60)"/>
             <column name="special" type="varchar(60)"/>
-            <column name="create_date" type="timestamp"/>
+            <column name="create_date" type="varchar(60)"/>
             <column name="regional" type="bigint"/>
         </createTable>
-        <dropDefaultValue tableName="result" columnName="create_date" columnDataType="datetime"/>
         <loadData encoding="UTF-8"
                   file="config/liquibase/result.csv"
                   separator=";"
                   tableName="result"/>
 
+        <createTable tableName="history_play">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="userId" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="regionguess" type="int"/>
+            <column name="guessId" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="guess">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="time_guess" type="varchar(60)"/>
+            <column name="number_guess" type="varchar(60)"/>
+        </createTable>
+        
         <createTable tableName="jhi_authority">
             <column name="name" type="varchar(50)">
                 <constraints primaryKey="true" nullable="false"/>
@@ -93,6 +113,18 @@
                                  constraintName="fk_user_id"
                                  referencedColumnNames="id"
                                  referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="userId"
+                                 baseTableName="history_play"
+                                 constraintName="fk_userId"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+        
+        <addForeignKeyConstraint baseColumnNames="guessId"
+                                 baseTableName="history_play"
+                                 constraintName="fk_guessId"
+                                 referencedColumnNames="id"
+                                 referencedTableName="guess"/>
 
         <addNotNullConstraint   columnName="password_hash"
                                 columnDataType="varchar(60)"
