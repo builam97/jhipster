@@ -13,5 +13,5 @@ public interface ResultService {
 
     List<ResultDTO> findAll();
 
-    List<ResultDTO> findByRegionAndDate(Long regional, String date);
+    ResultDTO findByRegionAndDate(Long regional, String date);
 }

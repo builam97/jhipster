@@ -2,6 +2,7 @@ package com.mycompany.myapp.web.rest;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.Optional;
 
 import com.mycompany.myapp.service.ResultService;
 import com.mycompany.myapp.service.dto.ResultDTO;
@@ -24,9 +25,9 @@ public class ResultResource {
 
     @GetMapping("/getResult")
     @Timed
-    public ResponseEntity<List<ResultDTO>> getResult(Long region, String date) {
+    public ResponseEntity<ResultDTO> getResult(Long region, String date) {
         log.debug("result date"+ date);
-        List<ResultDTO> result = resultService.findByRegionAndDate(region, date);
+        ResultDTO result = resultService.findByRegionAndDate(region, date);
         return ResponseEntity.ok(result);
     }
 

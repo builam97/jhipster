@@ -44,7 +44,7 @@ public class ResultServiceImpl implements ResultService {
     }
 
     @Override
-    public List<ResultDTO> findByRegionAndDate(Long regional, String date) {
+    public ResultDTO findByRegionAndDate(Long regional, String date) {
         return resultMapper.toDto(resultRepository.findByRegionAndDate(regional, date));
     }
 

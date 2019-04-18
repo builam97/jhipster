@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.Optional;
 
 import com.mycompany.myapp.domain.Result;
 
@@ -13,5 +14,5 @@ import com.mycompany.myapp.domain.Result;
 public interface ResultRepository extends JpaRepository<Result, Long>{
 
     @Query("select rs from Result rs Where rs.regional = ?1 and rs.create_date = ?2")
-    public List<Result> findByRegionAndDate(Long regional, String date);
+    public Result findByRegionAndDate(Long regional, String date);
 }
