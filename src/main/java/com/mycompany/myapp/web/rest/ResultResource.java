@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import com.mycompany.myapp.service.ResultService;
 import com.mycompany.myapp.service.dto.ResultDTO;
+import com.mycompany.myapp.service.dto.ResultUpdateDTO;
 
 import org.slf4j.*;
 import org.springframework.http.ResponseEntity;
@@ -25,9 +26,9 @@ public class ResultResource {
 
     @GetMapping("/getResult")
     @Timed
-    public ResponseEntity<ResultDTO> getResult(Long region, String date) {
+    public ResponseEntity<ResultUpdateDTO> getResult(Long region, String date) {
         log.debug("result date"+ date);
-        ResultDTO result = resultService.findByRegionAndDate(region, date);
+        ResultUpdateDTO result = resultService.findByRegionAndDate(region, date);
         return ResponseEntity.ok(result);
     }
 

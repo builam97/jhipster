@@ -1,13 +1,13 @@
 package com.mycompany.myapp.service.dto;
 
-import com.mycompany.myapp.domain.Guess;
-import com.mycompany.myapp.domain.User;
 
 public class HistoryPlayDTO {
 	private Long id;
 	private int regionguess;
-	private User user;
-	private Guess guess;
+	private Long userId;
+	// private UserDTO user;
+	private Long guessId;
+	// private GuessDTO guess;
 	public Long getId() {
 		return id;
 	}
@@ -20,18 +20,30 @@ public class HistoryPlayDTO {
 	public void setRegionguess(int regionguess) {
 		this.regionguess = regionguess;
 	}
-	public User getUser() {
-		return user;
+	public Long getUserId() {
+		return userId;
 	}
-	public void setUser(User user) {
-		this.user = user;
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
-
-	public Guess getGuess() {
-		return guess;
-	}
-	public void setGuess(Guess guess) {
-		this.guess = guess;
-	}
+	// public UserDTO getUser() {
+	// 	return user;
+	// }
+	// public void setUser(UserDTO user) {
+	// 	this.user = user;
+	// }
+	// public Long getGuessId() {
+	// 	return guessId;
+	// }
+	// public void setGuessId(Long guessId) {
+	// 	this.guessId = guessId;
+	// }
+	// public GuessDTO getGuess() {
+	// 	return guess;
+	// }
+	// public void setGuess(GuessDTO guess) {
+	// 	this.guess = guess;
+	// }
+	
 	
 }

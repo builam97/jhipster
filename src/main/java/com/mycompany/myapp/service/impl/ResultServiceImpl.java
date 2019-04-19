@@ -1,12 +1,15 @@
 package com.mycompany.myapp.service.impl;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.mycompany.myapp.domain.Result;
 import com.mycompany.myapp.repository.ResultRepository;
 import com.mycompany.myapp.service.ResultService;
 import com.mycompany.myapp.service.dto.ResultDTO;
+import com.mycompany.myapp.service.dto.ResultUpdateDTO;
 import com.mycompany.myapp.service.mapper.ResultMapper;
 import com.mycompany.myapp.service.util.MyUtil;
 import org.slf4j.Logger;
@@ -40,12 +43,52 @@ public class ResultServiceImpl implements ResultService {
 
     @Override
     public List<ResultDTO> findAll() {
-        return resultMapper.toDto(resultRepository.findAll());
+        return null;
     }
 
     @Override
-    public ResultDTO findByRegionAndDate(Long regional, String date) {
-        return resultMapper.toDto(resultRepository.findByRegionAndDate(regional, date));
+    public ResultUpdateDTO findByRegionAndDate(Long regional, String date) {
+        ResultUpdateDTO resultDTO = new ResultUpdateDTO();
+        List<Result> listResult = resultRepository.findByRegionAndDate(regional, date);
+        List<String> listSecond = new ArrayList<String>();
+        List<String> listThird = new ArrayList<String>();
+        List<String> listFourth = new ArrayList<String>();
+        List<String> listFifth = new ArrayList<String>();
+        List<String> listSixth = new ArrayList<String>();
+        List<String> listSeventh = new ArrayList<String>();
+        listResult.forEach(rs -> {
+            if(rs.getFirst() != "" && rs.getFirst() != null) {
+                resultDTO.setFirst(rs.getFirst());
+            }
+            if(rs.getSpecial() != "" && rs.getSpecial() != null) {
+                resultDTO.setSpecial(rs.getSpecial());
+            }
+            if(rs.getSecond() != "" && rs.getSecond() != null) {
+                listSecond.add(rs.getSecond());
+            }
+            if(rs.getThird() != "" && rs.getThird() != null) {
+            	listThird.add(rs.getThird());
+            }
+            if(rs.getFourth() != "" && rs.getFourth() != null) {
+            	listFourth.add(rs.getFourth());
+            }
+            if(rs.getFifth() != "" && rs.getFifth() != null) {
+            	listFifth.add(rs.getFifth());
+            }
+            if(rs.getSixth() != "" && rs.getSixth() != null) {
+            	listSixth.add(rs.getSixth());
+            }
+            if(rs.getSeventh() != "" && rs.getSeventh() != null) {
+            	listSeventh.add(rs.getSeventh());
+            }
+        });
+        resultDTO.setSecond(listSecond);
+        resultDTO.setThird(listThird);
+        resultDTO.setFourth(listFourth);
+        resultDTO.setFifth(listFifth);
+        resultDTO.setSixth(listSixth);
+        resultDTO.setSeventh(listSeventh);
+         return resultDTO;
     }
 
 }

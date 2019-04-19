@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.mycompany.myapp.service.dto.ResultDTO;
+import com.mycompany.myapp.service.dto.ResultUpdateDTO;
 
 public interface ResultService {
     ResultDTO save(ResultDTO resultDTO);
@@ -13,5 +14,5 @@ public interface ResultService {
 
     List<ResultDTO> findAll();
 
-    ResultDTO findByRegionAndDate(Long regional, String date);
+    ResultUpdateDTO findByRegionAndDate(Long regional, String date);
 }

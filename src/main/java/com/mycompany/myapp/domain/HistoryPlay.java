@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 public class HistoryPlay implements Serializable{
 	private static final long serialVersionUID = 1L;
     @Id
@@ -16,8 +18,13 @@ public class HistoryPlay implements Serializable{
     @Column(name = "userId")
 	private Long userId;
 	
-	@Column(name = "guessId")
-    private Long guessId;
+	@OneToMany
+	@JsonIgnoreProperties("")
+	private Guess guess;
+	
+	@OneToMany
+	@JsonIgnoreProperties("")
+    private User user;
     
 	public int getRegionguess() {
 		return regionguess;
@@ -37,12 +44,18 @@ public class HistoryPlay implements Serializable{
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
+	public Guess getGuess() {
+		return guess;
+	}
+	public void setGuess(Guess guess) {
+		this.guess = guess;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 
-	public Long getGuessId() {
-		return guessId;
-	}
-	public void setGuessId(Long guessId) {
-		this.guessId = guessId;
-	}
 	
 }
