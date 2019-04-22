@@ -3,9 +3,8 @@ package com.mycompany.myapp.service.dto;
 import java.util.List;
 
 public class ResultUpdateDTO {
-    private Long id;
-
-    private String first;
+	private Long id;
+    private List<String> first;
 
     private List<String> second;
 
@@ -19,12 +18,11 @@ public class ResultUpdateDTO {
 
     private List<String> seventh;
 
-    private String special;
+    private List<String> special;
 
     private String create_date;
     
 	private Long regional;
-
 	public ResultUpdateDTO() {
 		super();
 	}
@@ -40,19 +38,19 @@ public class ResultUpdateDTO {
 		this.seventh = seventh;
 	}
 
-	public Long getId() {
-		return id;
-	}
+	// public Long getId() {
+	// 	return id;
+	// }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+	// public void setId(Long id) {
+	// 	this.id = id;
+	// }
 
-	public String getFirst() {
+	public List<String> getFirst() {
 		return first;
 	}
 
-	public void setFirst(String first) {
+	public void setFirst(List<String> first) {
 		this.first = first;
 	}
 
@@ -104,11 +102,11 @@ public class ResultUpdateDTO {
 		this.seventh = seventh;
 	}
 
-	public String getSpecial() {
+	public List<String> getSpecial() {
 		return special;
 	}
 
-	public void setSpecial(String special) {
+	public void setSpecial(List<String> special) {
 		this.special = special;
 	}
 

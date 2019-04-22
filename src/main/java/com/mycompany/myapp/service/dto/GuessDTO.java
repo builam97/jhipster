@@ -1,6 +1,5 @@
 package com.mycompany.myapp.service.dto;
 
-import javax.persistence.Column;
 
 public class GuessDTO {
 	private Long id;
@@ -8,6 +7,10 @@ public class GuessDTO {
 	private String time_guess;
 	
 	private String number_guess;
+	
+	private Long region;
+	
+	private Long type_guess;
 
 	public Long getId() {
 		return id;
@@ -31,6 +34,22 @@ public class GuessDTO {
 
 	public void setNumber_guess(String number_guess) {
 		this.number_guess = number_guess;
+	}
+
+	public Long getRegion() {
+		return region;
+	}
+
+	public void setRegion(Long region) {
+		this.region = region;
+	}
+
+	public Long getType_guess() {
+		return type_guess;
+	}
+
+	public void setType_guess(Long type_guess) {
+		this.type_guess = type_guess;
 	}
 
 }

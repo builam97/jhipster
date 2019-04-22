@@ -50,6 +50,8 @@ public class ResultServiceImpl implements ResultService {
     public ResultUpdateDTO findByRegionAndDate(Long regional, String date) {
         ResultUpdateDTO resultDTO = new ResultUpdateDTO();
         List<Result> listResult = resultRepository.findByRegionAndDate(regional, date);
+        List<String> listSpecial = new ArrayList<String>();
+        List<String> listFirst = new ArrayList<String>();
         List<String> listSecond = new ArrayList<String>();
         List<String> listThird = new ArrayList<String>();
         List<String> listFourth = new ArrayList<String>();
@@ -58,10 +60,10 @@ public class ResultServiceImpl implements ResultService {
         List<String> listSeventh = new ArrayList<String>();
         listResult.forEach(rs -> {
             if(rs.getFirst() != "" && rs.getFirst() != null) {
-                resultDTO.setFirst(rs.getFirst());
+                listFirst.add(rs.getFirst());
             }
             if(rs.getSpecial() != "" && rs.getSpecial() != null) {
-                resultDTO.setSpecial(rs.getSpecial());
+                listSpecial.add(rs.getSpecial());
             }
             if(rs.getSecond() != "" && rs.getSecond() != null) {
                 listSecond.add(rs.getSecond());
@@ -82,6 +84,8 @@ public class ResultServiceImpl implements ResultService {
             	listSeventh.add(rs.getSeventh());
             }
         });
+        resultDTO.setSpecial(listSpecial);
+        resultDTO.setFirst(listFirst);
         resultDTO.setSecond(listSecond);
         resultDTO.setThird(listThird);
         resultDTO.setFourth(listFourth);

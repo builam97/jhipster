@@ -14,4 +14,9 @@ public final class Constants {
     
     private Constants() {
     }
+    public static class TypeRegion {
+        public static final Long TypeNorth = 1L;
+        public static final Long TypeCentral = 2L;
+        public static final Long TypeSouth = 3L;
+    }
 }

@@ -1,8 +1,5 @@
 package com.mycompany.myapp.service.dto;
 
-import java.time.Instant;
-import java.util.Date;
-
 public class ResultDTO {
     private Long id;
 

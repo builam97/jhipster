@@ -1,9 +1,5 @@
 package com.mycompany.myapp.web.rest;
 
-import java.time.Instant;
-import java.util.List;
-import java.util.Optional;
-
 import com.mycompany.myapp.service.ResultService;
 import com.mycompany.myapp.service.dto.ResultDTO;
 import com.mycompany.myapp.service.dto.ResultUpdateDTO;
@@ -43,4 +39,10 @@ public class ResultResource {
     public ResponseEntity<ResultDTO> updateResult(@RequestBody ResultDTO result) {
         return null;
     }
+
+    // @GetMapping("/getResultCentral")
+    // @Timed
+    // public ResponseEntity<List<ResultUpdateDTO>> getResultCentral(Long region, String date) {
+
+    // }
 }
