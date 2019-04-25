@@ -13,6 +13,10 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
                     path: 'admin',
                     loadChildren: './admin/admin.module#KqxsappAdminModule'
                 },
+                {
+                    path: 'app',
+                    loadChildren: './program/result-lottery.module#ResultLotteryModule'
+                },
                 ...LAYOUT_ROUTES
             ],
             { useHash: true, enableTracing: DEBUG_INFO_ENABLED }
