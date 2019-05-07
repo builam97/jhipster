@@ -31,7 +31,8 @@ public class ResultResource {
     @PostMapping("/createResult")
     @Timed
     public ResponseEntity<ResultDTO> createResult(@RequestBody ResultDTO result) {
-        return null;
+        ResultDTO rs = resultService.save(result);
+        return ResponseEntity.ok(rs);
     }
 
     @PutMapping("/updateResult")

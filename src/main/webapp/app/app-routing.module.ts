@@ -15,7 +15,7 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
                 },
                 {
                     path: 'app',
-                    loadChildren: './program/result-lottery.module#ResultLotteryModule'
+                    loadChildren: './program/result-lottery/result-lottery.module#ResultLotteryModule'
                 },
                 ...LAYOUT_ROUTES
             ],

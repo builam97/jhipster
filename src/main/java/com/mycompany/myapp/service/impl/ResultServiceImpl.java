@@ -33,7 +33,8 @@ public class ResultServiceImpl implements ResultService {
 
     @Override
     public ResultDTO save(ResultDTO resultDTO) {
-        return null;
+        ResultDTO rs = resultMapper.toDto(resultRepository.save(resultMapper.toEntity(resultDTO)));
+        return rs;
     }
 
     @Override
