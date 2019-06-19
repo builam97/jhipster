@@ -1,6 +1,7 @@
 package com.mycompany.myapp.web.rest;
 
 import com.mycompany.myapp.service.ResultService;
+import com.mycompany.myapp.service.dto.NotificationRequestDTO;
 import com.mycompany.myapp.service.dto.ResultDTO;
 import com.mycompany.myapp.service.dto.ResultUpdateDTO;
 
@@ -13,6 +14,8 @@ import io.micrometer.core.annotation.Timed;
 @RestController
 @RequestMapping("/api")
 public class ResultResource {
+
+	
     private Logger log = LoggerFactory.getLogger(ResultResource.class);
     private final ResultService resultService;
 
@@ -46,4 +49,10 @@ public class ResultResource {
     // public ResponseEntity<List<ResultUpdateDTO>> getResultCentral(Long region, String date) {
 
     // }
+    @PostMapping("/push-notification")
+    @Timed
+    public ResponseEntity<String> pushNotification(@RequestBody ResultDTO result) {
+    	String status = resultService.pushNotification(result);
+    	return ResponseEntity.ok(status);
+    }
 }

@@ -6,6 +6,8 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+// @Entity
+// @Table(name="history_play")
 public class HistoryPlay implements Serializable{
 	private static final long serialVersionUID = 1L;
     @Id

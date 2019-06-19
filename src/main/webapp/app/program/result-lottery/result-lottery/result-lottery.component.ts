@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IResult } from 'app/shared/models/result-lottery.model';
+import { IResult, Result } from 'app/shared/models/result-lottery.model';
 import { ResultLotteryService } from '../result-lottery.service';
 
 @Component({
@@ -8,15 +8,17 @@ import { ResultLotteryService } from '../result-lottery.service';
     styles: []
 })
 export class ResultLotteryComponent implements OnInit {
-    result: IResult;
+    result: Result = new Result();
     isSaving: Boolean;
+    token =
+        'fZwfDyFSGho:APA91bGJvD5YFLrMqlBtgHbwFpdilsCS-8nhZpq_PsYzV_DZ_06OqLNA0a9WcCdQSUy4fxcFSPGwfQ3VEDXKC-6a-LxbIdKTSPkTAKJ98YnE7vKdIMcr3x_n9u--RWxpv3kZboVL0cMU';
     constructor(private service: ResultLotteryService) {}
 
     ngOnInit() {}
     previousState() {}
     save() {
         this.service.createResult(this.result).subscribe(res => {
-            console.log('response ', res);
+            this.service.pushNotification(res).subscribe(resss => {});
         });
     }
 }
