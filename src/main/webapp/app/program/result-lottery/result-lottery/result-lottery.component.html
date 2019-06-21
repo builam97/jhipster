@@ -2,36 +2,40 @@
   <div class="col-8">
     <form name="editForm" (ngSubmit)="save()">
       <div class="form-group">
-        <label class="form-control-label" for="field_first">Special</label>
-        <input class="form-control" type="text" name="first" id="field_first" [(ngModel)]="result.special">
+        <label class="form-control-label" for="special">Special</label>
+        <input class="form-control" type="number" name="first" id="special" [(ngModel)]="result.special">
       </div>
       <div class="form-group">
-        <label class="form-control-label" for="field_first">First</label>
-        <input class="form-control" type="text" name="first" id="field_first" [(ngModel)]="result.first">
+        <label class="form-control-label" for="first">First</label>
+        <input class="form-control" type="number" name="first" id="first" [(ngModel)]="result.first">
       </div>
       <div class="form-group">
-        <label class="form-control-label" for="field_first">Second</label>
-        <input class="form-control" type="text" name="first" id="field_first" [(ngModel)]="result.second">
+        <label class="form-control-label" for="field_second">Second</label>
+        <input class="form-control" type="number" name="first" id="field_second" [(ngModel)]="result.second">
       </div>
       <div class="form-group">
-        <label class="form-control-label" for="field_first">Third</label>
-        <input class="form-control" type="text" name="first" id="field_first" [(ngModel)]="result.third">
+        <label class="form-control-label" for="field_third">Third</label>
+        <input class="form-control" type="number" name="third" id="field_third" [(ngModel)]="result.third">
       </div>
       <div class="form-group">
-        <label class="form-control-label" for="field_first">Fourth</label>
-        <input class="form-control" type="text" name="first" id="field_first" [(ngModel)]="result.fourth">
+        <label class="form-control-label" for="field_fourth">Fourth</label>
+        <input class="form-control" type="number" name="fourth" id="field_fourth" [(ngModel)]="result.fourth">
       </div>
       <div class="form-group">
-        <label class="form-control-label" for="field_first">FifTh</label>
-        <input class="form-control" type="text" name="first" id="field_first" [(ngModel)]="result.fifth">
+        <label class="form-control-label" for="field_fifth">FifTh</label>
+        <input class="form-control" type="number" name="fifth" id="field_fifth" [(ngModel)]="result.fifth">
       </div>
       <div class="form-group">
-        <label class="form-control-label" for="field_first">Sixth</label>
-        <input class="form-control" type="text" name="first" id="field_first" [(ngModel)]="result.sixth">
+        <label class="form-control-label" for="field_sixth">Sixth</label>
+        <input class="form-control" type="number" name="sixth" id="field_sixth" [(ngModel)]="result.sixth">
       </div>
       <div class="form-group">
-        <label class="form-control-label" for="field_first">Seventh</label>
-        <input class="form-control" type="text" name="first" id="field_first" [(ngModel)]="result.seventh">
+        <label class="form-control-label" for="field_seventh">Seventh</label>
+        <input class="form-control" type="number" name="seventh" id="field_seventh" [(ngModel)]="result.seventh">
+      </div>
+       <div class="form-group">
+        <label class="form-control-label" for="field_regional">Regional</label>
+        <input class="form-control" type="number" name="regional" id="field_regional" [(ngModel)]="result.regional">
       </div>
       <div>
         <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">

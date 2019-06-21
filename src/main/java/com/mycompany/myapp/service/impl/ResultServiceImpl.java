@@ -7,8 +7,11 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,6 +47,10 @@ public class ResultServiceImpl implements ResultService {
 
     @Override
     public ResultDTO save(ResultDTO resultDTO) {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date();
+        resultDTO.setCreate_date(dateFormat.format(date));
+        // resultDTO.setRegional(1L);
         ResultDTO rs = resultMapper.toDto(resultRepository.save(resultMapper.toEntity(resultDTO)));
         return rs;
     }

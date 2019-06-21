@@ -29,6 +29,9 @@ public class Guess implements Serializable{
 	@Column(name= "type_guess")
 	private Long type_guess;
 
+	@Column(name= "point_guess")
+	private Long point_guess;
+
 	public Long getId() {
 		return id;
 	}
@@ -69,6 +72,14 @@ public class Guess implements Serializable{
 		this.type_guess = type_guess;
 	}
 
+	public Long getPoint_guess() {
+		return point_guess;
+	}
+
+	public void setPoint_guess(Long point_guess) {
+		this.point_guess = point_guess;
+	}
+	
 	@Override
 	public String toString() {
 		return "Guess [id=" + id + ", time_guess=" + time_guess + ", number_guess=" + number_guess + ", region="

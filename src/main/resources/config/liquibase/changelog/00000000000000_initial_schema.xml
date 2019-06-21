@@ -85,6 +85,7 @@
             <column name="number_guess" type="varchar(60)"/>
             <column name="region" type="bigint"/>
             <column name="type_guess" type="bigint"/>
+            <column name="point_guess" type="bigint"/>
         </createTable>
         
         <createTable tableName="jhi_authority">
@@ -101,22 +102,8 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
-<!--         
-        <createTable tableName="User_Extra">
-        	<column name="Id" type="bigint" autoIncrement="${autoIncrement}">
-        		<constraints primaryKey="true" nullable="false"/>
-        	</column>
-        	<column name="point_cash" type="varchar(50)"/>
-        	<column name="user_id" type="bigint"/>
-        </createTable>
-		
-		<addForeignKeyConstraint baseColumnNames="user_id"
-								baseTableName="User_Extra"
-								constraintName="fk_user_id"
-								referencedColumnNames="id"
-								referencedTableName="jhi_user"/> -->
-								
-								
+      
+   							
         <addPrimaryKey columnNames="user_id, authority_name" tableName="jhi_user_authority"/>
 
         <addForeignKeyConstraint baseColumnNames="authority_name"
@@ -150,6 +137,7 @@
                   file="config/liquibase/users.csv"
                   separator=";"
                   tableName="jhi_user">
+     
             <column name="activated" type="boolean"/>
             <column name="created_date" type="timestamp"/>
         </loadData>
@@ -163,6 +151,7 @@
                   file="config/liquibase/users_authorities.csv"
                   separator=";"
                   tableName="jhi_user_authority"/>
+
         <createTable tableName="jhi_persistent_audit_event">
             <column name="event_id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
@@ -203,6 +192,24 @@
                                  constraintName="fk_evt_pers_audit_evt_data"
                                  referencedColumnNames="event_id"
                                  referencedTableName="jhi_persistent_audit_event"/>
+        <createTable tableName="user_extra">
+        	<column name="Id" type="bigint" autoIncrement="${autoIncrement}">
+        		<constraints primaryKey="true" nullable="false"/>
+        	</column>
+        	<column name="point_cash" type="varchar(50)"/>
+        	<column name="user_id" type="bigint"/>
+        </createTable>
+
+		<addForeignKeyConstraint baseColumnNames="user_id"
+								baseTableName="user_extra"
+								constraintName="fk_userextra_id"
+								referencedColumnNames="id"
+								referencedTableName="jhi_user"/>
+
+         <loadData encoding="UTF-8"
+                  file="config/liquibase/user_extra.csv"
+                  separator=";"
+                  tableName="user_extra"/>
     </changeSet>
 
     <changeSet author="jhipster" id="00000000000002" context="test">

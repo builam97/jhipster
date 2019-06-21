@@ -7,15 +7,18 @@ import com.mycompany.myapp.security.AuthoritiesConstants;
 import com.mycompany.myapp.service.MailService;
 import com.mycompany.myapp.service.UserService;
 import com.mycompany.myapp.service.dto.UserDTO;
+import com.mycompany.myapp.service.dto.UserExtraDTO;
 import com.mycompany.myapp.web.rest.errors.BadRequestAlertException;
 import com.mycompany.myapp.web.rest.errors.EmailAlreadyUsedException;
 import com.mycompany.myapp.web.rest.errors.LoginAlreadyUsedException;
 import com.mycompany.myapp.web.rest.util.HeaderUtil;
 import com.mycompany.myapp.web.rest.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
+import io.micrometer.core.annotation.Timed;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
@@ -64,7 +67,7 @@ public class UserResource {
     private final UserRepository userRepository;
 
     private final MailService mailService;
-
+    
     public UserResource(UserService userService, UserRepository userRepository, MailService mailService) {
 
         this.userService = userService;
@@ -179,5 +182,12 @@ public class UserResource {
         log.debug("REST request to delete User: {}", login);
         userService.deleteUser(login);
         return ResponseEntity.ok().headers(HeaderUtil.createAlert( "A user is deleted with identifier " + login, login)).build();
+    }
+    
+    @GetMapping("user-extra")
+    @Timed
+    public ResponseEntity<UserExtraDTO> getUserExtra(Long userExtraId){
+    	UserExtraDTO result = userService.getUserExtra(userExtraId);
+    	return ResponseEntity.ok(result);
     }
 }

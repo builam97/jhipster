@@ -41,6 +41,7 @@ public class CacheConfiguration {
             // jhipster-needle-ehcache-add-entry
             cm.createCache(com.mycompany.myapp.domain.Result.class.getName(), jcacheConfiguration);
             cm.createCache(com.mycompany.myapp.domain.Guess.class.getName(), jcacheConfiguration);
+            cm.createCache(com.mycompany.myapp.domain.UserExtra.class.getName(), jcacheConfiguration);
         };
     }
 }

@@ -3,16 +3,21 @@ package com.mycompany.myapp.service;
 import com.mycompany.myapp.config.Constants;
 import com.mycompany.myapp.domain.Authority;
 import com.mycompany.myapp.domain.User;
+import com.mycompany.myapp.domain.UserExtra;
 import com.mycompany.myapp.repository.AuthorityRepository;
+import com.mycompany.myapp.repository.UserExtraRepository;
 import com.mycompany.myapp.repository.UserRepository;
 import com.mycompany.myapp.security.AuthoritiesConstants;
 import com.mycompany.myapp.security.SecurityUtils;
 import com.mycompany.myapp.service.dto.UserDTO;
+import com.mycompany.myapp.service.dto.UserExtraDTO;
+import com.mycompany.myapp.service.mapper.UserExtraMapper;
 import com.mycompany.myapp.service.util.RandomUtil;
 import com.mycompany.myapp.web.rest.errors.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -42,12 +47,19 @@ public class UserService {
     private final AuthorityRepository authorityRepository;
 
     private final CacheManager cacheManager;
+    
+    @Autowired
+    private UserExtraMapper userExtraMapper;
+    
+    private UserExtraRepository userExtraRepository;
+    
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, AuthorityRepository authorityRepository, CacheManager cacheManager) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, AuthorityRepository authorityRepository, CacheManager cacheManager, UserExtraRepository userExtraRepository) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.authorityRepository = authorityRepository;
         this.cacheManager = cacheManager;
+        this.userExtraRepository = userExtraRepository;
     }
 
     public Optional<User> activateRegistration(String key) {
@@ -290,5 +302,11 @@ public class UserService {
     private void clearUserCaches(User user) {
         Objects.requireNonNull(cacheManager.getCache(UserRepository.USERS_BY_LOGIN_CACHE)).evict(user.getLogin());
         Objects.requireNonNull(cacheManager.getCache(UserRepository.USERS_BY_EMAIL_CACHE)).evict(user.getEmail());
+    }
+    
+    public UserExtraDTO getUserExtra(Long userExtraId) {
+    	log.debug("REST request to getuserExtra id: {}", userExtraId);
+    	log.debug("REST request to getuserExtra userextra: {}", userExtraRepository.getUserExtraByid(userExtraId));
+    	return userExtraMapper.toDto(userExtraRepository.getUserExtraByid(userExtraId));
     }
 }

@@ -12,9 +12,9 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-// @Entity
-// @Table(name="user_extra")
-// @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+ @Entity
+ @Table(name="user_extra")
+ @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class UserExtra {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

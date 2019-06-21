@@ -43,7 +43,7 @@ public class GuessResource {
 	@GetMapping("/getGuess")
 	@Timed
 	public ResponseEntity<List<GuessDTO>> getAllGuess() {
-		log.debug("get guess all");
+		log.debug("get guess all" + guessRepository.findAll().size());
 		List<GuessDTO> listGuess = guessMapper.toDto(guessRepository.findAll());
 		return ResponseEntity.ok(listGuess);
 	}
